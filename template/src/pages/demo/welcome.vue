@@ -3,7 +3,10 @@
     <template v-if="!markdownBox">
       <h2 class="mb-l">欢迎使用</h2>
       <div class="title">mweb前端开发项目框架</div>
-      <span @click="markdownBox=true" class="doc mt-l">使用说明</span>
+      <iu-flex align="center" valign="center" class="mt-1">
+        <el-button type="primary" @click="$router.push('/demo/index')">进入项目</el-button>
+        <el-button @click="markdownBox=true">使用说明</el-button>
+      </iu-flex>
     </template>
     <div v-if="markdownBox" v-html class="markdown">
       <body marginwidth="0" marginheight="0">
@@ -124,7 +127,7 @@
 
 <script>
 export default {
-  name: "demo",
+  name: "welcome",
   components: {
     //组件
   },
@@ -171,6 +174,10 @@ export default {
     color: #ccc;
     cursor: pointer;
     text-decoration: underline;
+  }
+
+  .into{
+    color: orange;
   }
 
   @keyframes naughty {

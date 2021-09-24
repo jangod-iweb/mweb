@@ -19,8 +19,8 @@ module.exports = {
         open: true,
         proxy:{
             '/local': {
-                target: 'http://127.0.0.1/',
-                changeOrigin: true,
+                target: 'http://203.175.139.42',
+                changeOrigin: true
             }
         }
     },
