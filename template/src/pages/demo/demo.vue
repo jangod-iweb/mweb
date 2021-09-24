@@ -23,7 +23,7 @@
             align="center"
             label="状态">
             <template slot-scope="scope">
-                <el-tag :type="scope.row.topFlag==1?'success':'danger'">{{scope.row.topFlag==1?"上线":"下线"}}</el-tag>
+                <el-tag :type="scope.row.topFlag==1?'success':'danger'">\{{scope.row.topFlag==1?"上线":"下线"}}</el-tag>
             </template>
         </el-table-column>
         <el-table-column
@@ -31,7 +31,7 @@
             align="center"
             label="是否置顶">
             <template slot-scope="scope">
-                <el-tag :type="scope.row.topFlag==1?'success':'danger'">{{scope.row.topFlag==1?"是":"否"}}</el-tag>
+                <el-tag :type="scope.row.topFlag==1?'success':'danger'">\{{scope.row.topFlag==1?"是":"否"}}</el-tag>
             </template>
         </el-table-column>
         <el-table-column

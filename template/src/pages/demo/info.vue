@@ -2,7 +2,7 @@
   <div class="inner-padding">
       <iu-flex valign="center" class="header">
         <el-button type="text" @click="goBack" icon="el-icon-back">返回</el-button>
-        <div v-if="ruleForm.title" class="pl-1 ml-1 line-l">{{ruleForm.title}}</div>
+        <div v-if="ruleForm.title" class="pl-1 ml-1 line-l">\{{ruleForm.title}}</div>
       </iu-flex>
       <el-form class="customize-form" :model="ruleForm" :rules="rules" label-position="left" ref="ruleForm" label-width="100px">
         <el-form-item label="文章标题" prop="title">
@@ -114,8 +114,8 @@
           :default-expanded-keys="[this.ruleForm.type]"
           @check-change="handleNodeClick">
           <span class="custom-tree-node" slot-scope="{ node, data }">
-            <el-input v-focus class="edit-input" ref="treeEditInput" v-model="data.name" @blur="edit(data,()=>{$set(data,'edit',false);})" v-if="data.edit" size="mini">{{ node.name }}</el-input>
-            <span v-else>{{ node.label }}</span>
+            <el-input v-focus class="edit-input" ref="treeEditInput" v-model="data.name" @blur="edit(data,()=>{$set(data,'edit',false);})" v-if="data.edit" size="mini">\{{ node.name }}</el-input>
+            <span v-else>\{{ node.label }}</span>
             <span>
               <el-button
                 type="text"

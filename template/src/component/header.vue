@@ -2,7 +2,7 @@
   <iu-flex align="between" class="header-box">
     <iu-flex valign="center">
       <iu-flex class="item" valign=center :key="index" v-for="(item,index) in data">
-        <div class="lable">{{item.name}}</div>
+        <div class="lable">\{{item.name}}</div>
         <el-select v-if="item.type=='select'" clearable size="small" v-model="item.value" :placeholder="'请选择'+item.name">
           <el-option
             v-for="temp in item.list"
