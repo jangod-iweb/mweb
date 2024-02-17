@@ -1,19 +1,21 @@
 const path = require("path");
 const RuntimePublicPathPlugin = require('webpack-runtime-public-path-plugin');
 const fileManagerPlugin = require('filemanager-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const GenerateConfig = require('@jangod/iweb-sdk/generate-config.js');
 const Config = GenerateConfig();
 const package = require('./package.json')
 function resolve(dir) {
     return path.join(__dirname,dir)
 }
+const outputPath = `./target/dist/${Config.appId}`
 const CDN = {
     js:[],
     css:[]
 }
 module.exports = {
     publicPath: Config.context,
-    outputDir: `target/${Config.version}/${package.name}`,
+    outputDir: outputPath,
     assetsDir: "static",
     runtimeCompiler: false,
     productionSourceMap: false,
@@ -61,8 +63,13 @@ module.exports = {
                 .use(fileManagerPlugin, [{
                     events:{
                         onEnd: {
-                            delete: [`./${package.name}_*\.zip`,'./public/version.json'],
-                            archive: [{source: `./target/${Config.version}`, destination: `./target/${package.name}_${Config.version}.zip`}]
+                            delete: [`./target/${Config.appId}_${Config.active}_*\.zip`,'./public/version.json'],
+                             archive: [
+                                {
+                                    source: `${outputPath.substring(0,outputPath.lastIndexOf("/"))}`,
+                                    destination: `./target/${Config.appId}_${Config.active}_${Config.version}.zip`
+                                }
+                            ]
                         }
                     }
                 }])
