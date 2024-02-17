@@ -34,6 +34,7 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.11",
-    "webpack-runtime-public-path-plugin": "^1.1.2"
+    "webpack-runtime-public-path-plugin": "^1.1.2",
+    "webpackbar": "^5.0.2"
   }
 }
