@@ -1,6 +1,7 @@
 const path = require("path");
 const RuntimePublicPathPlugin = require('webpack-runtime-public-path-plugin');
 const fileManagerPlugin = require('filemanager-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const GenerateConfig = require('@jangod/iweb-sdk/generate-config.js');
 const Config = GenerateConfig();
 const package = require('./package.json')
