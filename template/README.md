@@ -42,13 +42,24 @@
 ```
 
 ### 5、项目打包
-**1.修改 `/config/application.json` 中的 version [版本号]**
+**1.修改 `/config/application.json` 中的 `version` [版本号]**
 
-**2.执行` npm run build`**
+**2.修改`/config/application.json`中的`active`决定打包使用的配置文件**
 
-**3.在根目录生成`dist`资源目录，与`/target/dist_[版本号]`的zip压缩包**
+**3.执行打包命令**
 
-**说明：`/target/dist_[版本号].zip`就是`dist`目录的打包文件**
+第一种 根据`/config/application.json`的`active`决定打包模式
+
+` npm run build` 
+
+第二种 根据命令参数决定打包模式`[active=xxx]`，示例：
+
+`npm run build active=dev`
+
+**4.在根目录生成`target`资源目录，`/target/dist/[appId]`的资源包**
+
+**说明：`/target/[appId]_[active]_[version].zip`就是项目资源的打包文件**
+
 ### 扩展信息
 ```
 1、接口代理配置 vue.config.js
