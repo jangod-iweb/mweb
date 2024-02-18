@@ -12,6 +12,12 @@
        (function(){window.__iweb_context_path="";window.__iweb_preview="0";var pathname=window.location.pathname;var arrPathname=pathname.split("/");if(arrPathname.length>=3&&(arrPathname[1]=="t"||arrPathname[1]=="tp"||arrPathname[1]=="p")){window.__iweb_context_path="/"+arrPathname[1]+"/"+arrPathname[2]+"/";if(arrPathname[1]==="tp"){window.__iweb_preview="1"}}else{window.__iweb_context_path="<%=webpackConfig.output.publicPath %>"}})();
       (function(){if(!window.__iweb_public_path){window.__iweb_public_path="";return}var xmlhttp=null;if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest()}else if(window.ActiveXObject){xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")}if(xmlhttp==null){console.log("get_error:","您的浏览器不支持XMLHttp")}else{xmlhttp.onreadystatechange=function(){if(xmlhttp.readyState==4){if(xmlhttp.status==200){try{window.__iweb_config=JSON.parse(xmlhttp.responseText)}catch(e){console.log("format_error:",e)}}else{console.log("get_error:",xmlhttp)}}};xmlhttp.open("GET",window.__iweb_public_path+"version.json?t="+new Date().getTime(),false);xmlhttp.send(null)}})();
   </script>
+  <% for(var item of process.env.cdn.css) { %>
+    <link rel="stylesheet" <%=item.attr%> href="<%=item.path%>"/>
+  <% } %>
+  <% for(var item of process.env.cdn.js) { %>
+    <script src="<%=item.path%>" <%=item.attr%> type="text/javascript"></script>
+  <% } %>
 </head>
 <body>
   <div id="app"></div>
