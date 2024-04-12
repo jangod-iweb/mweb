@@ -36,7 +36,7 @@ module.exports = {
             type: 'filesystem',
             allowCollectingMemory: true
         }
-    }
+    },
     chainWebpack: config =>{
         config.resolve.alias
             .set('@_src',resolve('src'));
