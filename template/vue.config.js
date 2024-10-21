@@ -5,14 +5,13 @@ const WebpackBar = require('webpackbar');
 const GenerateConfig = require('@jangod/iweb-sdk/generate-config.js');
 const Config = GenerateConfig();
 const package = require('./package.json')
+const InjectionPlugin = require("@jangod/iweb-sdk/loader/dev-injection-plugin");
+const devInjectionPlugin = new InjectionPlugin();
+const cdnSyncObj = devInjectionPlugin.getCDNSyncObject();
 function resolve(dir) {
     return path.join(__dirname,dir)
 }
 const outputPath = `./target/dist/${Config.appId}`
-const CDN = {
-    js:[],
-    css:[]
-}
 module.exports = {
     publicPath: Config.context,
     outputDir: outputPath,
@@ -35,7 +34,8 @@ module.exports = {
         cache:{
             type: 'filesystem',
             allowCollectingMemory: true
-        }
+        },
+        externals: cdnSyncObj.externals
     },
     chainWebpack: config =>{
         config.resolve.alias
@@ -46,7 +46,7 @@ module.exports = {
             }]);
         config.plugin('define').tap(args => {
             args[0]['process.env'].versionTimestamp = JSON.stringify(new Date().getTime())
-            args[0]['process.env'].cdn = JSON.stringify(CDN)
+            args[0]['process.env'].cdn = JSON.stringify(cdnSyncObj.cdn)
             return args
         });
         config.plugin('webpackBar').use(WebpackBar).tap(args => {
