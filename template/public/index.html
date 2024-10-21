@@ -17,9 +17,9 @@
   </script>
   <script type="text/javascript">
       (function(){
-          <%for(var i in process.env.cdn&&process.env.cdn.css){%>__iweb_loadcdn('css',"<%=process.env.cdn.css[i].path %>","<%=webpackConfig.output.publicPath %>"?"":window.__iweb_context_path,"<%=process.env.cdn.css[i].async %>",'<%=process.env.cdn.css[i].attr %>');<%}%>
+          <%for(var i in process.env.cdn&&process.env.cdn.css){%>__iweb_loadcdn('css',"<%=process.env.cdn.css[i].path %>","<%=webpackConfig.output.publicPath %>"?"":window.__iweb_context_path,"<%=process.env.cdn.css[i].async %>",'<%=process.env.cdn.css[i].attrs %>');<%}%>
           <%for(var i in htmlWebpackPlugin.files.css){%>__iweb_dynamic_loading.css("<%=htmlWebpackPlugin.files.css[i] %>","<%=webpackConfig.output.publicPath %>"?"":window.__iweb_context_path);<%}%>
-          <%for(var i in process.env.cdn&&process.env.cdn.js){%>__iweb_loadcdn('js',"<%=process.env.cdn.js[i].path %>","<%=webpackConfig.output.publicPath %>"?"":window.__iweb_context_path,"<%=process.env.cdn.js[i].async %>",'<%=process.env.cdn.js[i].attr %>');<%}%>
+          <%for(var i in process.env.cdn&&process.env.cdn.js){%>__iweb_loadcdn('js',"<%=process.env.cdn.js[i].path %>","<%=webpackConfig.output.publicPath %>"?"":window.__iweb_context_path,"<%=process.env.cdn.js[i].async %>",'<%=process.env.cdn.js[i].attrs %>');<%}%>
       })();
   </script>
 </head>
