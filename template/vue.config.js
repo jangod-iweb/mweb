@@ -46,7 +46,9 @@ module.exports = {
             }]);
         config.plugin('define').tap(args => {
             args[0]['process.env'].versionTimestamp = JSON.stringify(new Date().getTime())
+            args[0]['process.env'].cdnDefaultDir = JSON.stringify('/static/plugins')
             args[0]['process.env'].cdn = JSON.stringify(cdnSyncObj.cdn)
+            args[0]['process.env'].plugins = JSON.stringify(devInjectionPlugin.getPlugins())
             return args
         });
         config.plugin('webpackBar').use(WebpackBar).tap(args => {
